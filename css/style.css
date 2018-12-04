@@ -11,7 +11,11 @@ body {background-color:#DBDBDB;
 		padding:0;
 		text-align:center;}
 
-h1 {text-align: center;}
+h1 {font-family: 'Arial', sans-serif;
+	font-size:100%;
+	color:white;
+	text-align: center;
+	background-color:blue;}
 
 
 g[class='note'] {

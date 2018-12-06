@@ -57,6 +57,7 @@
             	/* If your element has an authURI attribute, copy the folloiwng line, being sure to replace the "MY-XML-ID" with your element's actual xml:id.
             	document.querySelector("#meta").innerHTML += "<a href=\"" + meiDoc.querySelector("[*|id='MY-XML-ID']").getAttribute('authURI') +"\"><p>" + meiDoc.querySelector("[*|id='MY-XML-ID']").textContent + "</p></a>"
            		*/
+           		document.querySelector("#meta").innerHTML += "<a href=\"" + meiDoc.querySelector("[*|id='composer-authority-hans-zimmer']").getAttribute('authURI') +"\"><p>" + meiDoc.querySelector("[*|id='composer-authority-hans-zimmer']").textContent + "</p></a>"
            		/* If your element does not have an authURI attribute, copy the following line, being sure to replace the "MY-XML-ID" with your element's actual xml:id.
             	document.querySelector("#meta").innerHTML += "<p>" + meiDoc.querySelector("[*|id='m-8']").textContent + "</p>"
             	*/

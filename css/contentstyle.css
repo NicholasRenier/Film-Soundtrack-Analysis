@@ -39,11 +39,26 @@ h2, h3 {font-family: 'Arial', sans-serif;
 h2 {font-size:180%;}
 h3 {font-size:110%;}
 
+h4 {margin:0 auto;
+	font-family: 'Arial', sans-serif;
+	font-size:140%;
+	font-weight:normal;
+	color:white;
+	width:120px;
+	text-align: center;
+	padding:5px;
+	background-color:firebrick;
+	border-radius:15px;}
+
 p {font-family: 'Arial', sans-serif;
 	font-size:100%;
 	font-weight:normal;
 	color:white;
 	text-align:center;}
+
+p a {text-decoration:underline;
+		color:white;}
+p a:hover{color:yellow;}
 
 g[class='note'] {color:red;}
 

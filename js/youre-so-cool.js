@@ -13,11 +13,11 @@ if (content) {
 var defaultHeight = document.documentElement.clientHeight - contentHeight
 var defaultWidth = document.documentElement.clientWidth - 50
 options = {
-    pageHeight: defaultHeight * 100 / zoom,
-    pageWidth: defaultWidth * 100 / zoom,
+    pageHeight: defaultHeight * 50 / zoom,
+    pageWidth: defaultWidth * 50 / zoom,
     scale: zoom
 }
 vrvToolkit.setOptions(options)
 
 /* Show the score */
-showScore('score', 'data/example.mei') // <-- CHANGE THIS TO YOUR FILE
+showScore('score', 'data/youresocool.mei') // <-- CHANGE THIS TO YOUR FILE

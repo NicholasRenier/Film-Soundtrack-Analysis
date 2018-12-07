@@ -39,16 +39,11 @@ h2, h3 {font-family: 'Arial', sans-serif;
 h2 {font-size:180%;}
 h3 {font-size:110%;}
 
-h4 {margin:0 auto;
-	font-family: 'Arial', sans-serif;
+h4 {font-family: 'Arial', sans-serif;
 	font-size:140%;
 	font-weight:normal;
 	color:white;
-	width:120px;
-	text-align: center;
-	padding:5px;
-	background-color:firebrick;
-	border-radius:15px;}
+	text-align: center;}
 
 p {font-family: 'Arial', sans-serif;
 	font-size:100%;

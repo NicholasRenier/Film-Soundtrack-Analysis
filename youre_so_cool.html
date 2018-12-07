@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Film Soundtrack Analysis Project</title>
+    <link rel="stylesheet" type="text/css" href="css/contentstyle.css" media="all"/>
+    <meta charset="utf-8">
+    <meta name="description" content="Nicholas Renier - Film Soundtrack Analysis Project">
+    <meta name="author" content="Nicholas Renier">
+    <script src="js/verovio-toolkit.js"></script>
+    <script src="js/utils.js"></script>
+  </head>
+  <body>
+  	<a href="index.html"><h1>Nicholas Renier - Film Soundtrack Analysis Project</h1></a>
+  	<div id="background">
+  		<div id="textcontainer">
+  			<table style="margin: 0px auto;">
+    			<tr>
+    				<td>
+    					<a href="https://www.imdb.com/title/tt0108399/" target="_blank">
+    					<img style="margin-top:10px; margin-bottom:10px;" src="images/trueromance.jpg" alt="True Romance Poster" height="200"></a>
+    				</td>
+    				<td>
+    					<tr2><td2><h2>You're So Cool</h2></td2></tr2>
+    					<tr2><td2><h3>from True Romance (1993)</h3></td2></tr2>
+    					<tr2><td2><h3>Hans Zimmer</h3></td2></tr2>
+    				</td>
+    			</tr>
+    		</table>
+    		<div id="content">
+				<h4><u>Metadata</u></h4>
+				<br>
+				<p>Click the link below to view Hans Zimmer's full filmo/discography</p>
+      			<p id="meta"></p>
+      		</div>
+      		<br><br>
+      		<h4><u>Verovio Render</u></h4>
+    		<div id="controls">
+     			<button id="prev"> &lt; </button>
+      			<button id="next"> &gt; </button>
+   			</div>
+   		 	<div id="score">
+      		<!-- THIS IS WHERE THE SCORE GOES AUTOMATICALLY -->
+    		</div>
+    		<!-- THIS CALLS THE SCRIPT THAT GETS THE MEI SCORE -->
+   			<script src="js/youre-so-cool.js"></script>
+    		<script>
+      			var xhr = new XMLHttpRequest()
+      				xhr.open('GET', 'data/youresocool.mei') // <-- change this to the right file
+      				xhr.send(null)
+
+      			/* Deal with the response */
+      			xhr.onreadystatechange = function () {
+        			var DONE = 4
+      		 		var OK = 200
+        			if (xhr.readyState === DONE) {
+        		  		if (xhr.status === OK) {
+            				var parser = new DOMParser()
+            				var meiDoc = parser.parseFromString(xhr.responseText,"text/xml")
+            	/* If your element has an authURI attribute, copy the folloiwng line, being sure to replace the "MY-XML-ID" with your element's actual xml:id.
+            	document.querySelector("#meta").innerHTML += "<a href=\"" + meiDoc.querySelector("[*|id='MY-XML-ID']").getAttribute('authURI') +"\"><p>" + meiDoc.querySelector("[*|id='MY-XML-ID']").textContent + "</p></a>"
+           		*/
+           		document.querySelector("#meta").innerHTML += "<a href=\"" + meiDoc.querySelector("[*|id='composer-authority-hans-zimmer']").getAttribute('authURI') +"\"><p>" + meiDoc.querySelector("[*|id='composer-authority-hans-zimmer']").textContent + "</p></a>"
+           		/* If your element does not have an authURI attribute, copy the following line, being sure to replace the "MY-XML-ID" with your element's actual xml:id.
+            	document.querySelector("#meta").innerHTML += "<p>" + meiDoc.querySelector("[*|id='m-8']").textContent + "</p>"
+            	*/
+          		}
+        		}
+      			}
+    		</script>
+    		<br><br>
+    		<h4><u>Music21 Analysis</u></h4>
+    		<br>
+    		<img style="padding-right:5px;" src="images/Youre So Cool/Youre So Cool Histogram.png" alt="Histogram" height="350">
+    		<img style="padding-left:5px;" src="images/Youre So Cool/Youre So Cool Piano Roll.png" alt="Piano Roll" height="350">
+    		<br><br><br>
+    		<h4><u>jSymbolic Analysis of Midi File</u></h4>
+    		<br>
+    		<img src="images/Youre So Cool/Youre So Cool Feature Values.jpg" alt="jSymbolic Values" width="100%">
+    		<br><br><br>
+    		<h4><u>Sonic Visualiser Analysis</u></h4>
+    		<br>
+    		<img src="images/Youre So Cool/Youre So Cool Technical Metadata.jpg" alt="Technical Metadata" width="100%">
+    		<img src="images/Youre So Cool/Youre So Cool Waveform.png" alt="Waveform" width="70%">
+    		<img src="images/Youre So Cool/Youre So Cool Log Frequency Spectrogram.png" alt="Spectrogram" width="70%">
+    		<img src="images/Youre So Cool/Youre So Cool Melodic Range Spectrogram with Spectrum.png" alt="Melodic Range with Spectrum" width="70%">
+    		<img src="images/Youre So Cool/Youre So Cool MFCC.png" alt="MFCC" width="70%">
+    		<img src="images/Youre So Cool/Youre So Cool Chromagram.png" alt="Chromagram" width="70%">
+    		<br><br><br>
+    		<h4><u>All Other Files & Analysis</u></h4>
+    		<br>
+    		<p>View and download all other files by clicking on the folder icon</p>
+    		<br>
+    		<a href="You're So Cool Files.zip" download>
+    		<img src="images/folder.png" alt="Folder Icon" height="150">
+    		<p>You're So Cool Files.zip</p></a>
+    		<br><br>
+    		<p><u><a href="#top">Back to top?</a></u></p>
+    		<br>
+  		</div>
+  	</div>
+  </body>
+</html>

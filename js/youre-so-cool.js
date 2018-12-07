@@ -13,8 +13,8 @@ if (content) {
 var defaultHeight = document.documentElement.clientHeight - contentHeight
 var defaultWidth = document.documentElement.clientWidth - 50
 options = {
-    pageHeight: defaultHeight * 300 / zoom,
-    pageWidth: defaultWidth * 70 / zoom,
+    pageHeight: defaultHeight * 800 / zoom,
+    pageWidth: defaultWidth * 100 / zoom,
     scale: zoom
 }
 vrvToolkit.setOptions(options)

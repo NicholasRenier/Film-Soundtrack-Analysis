@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Film Soundtrack Analysis Project</title>
+    <link rel="stylesheet" type="text/css" href="css/contentstyle.css" media="all"/>
+    <meta charset="utf-8">
+    <meta name="description" content="Nicholas Renier - Film Soundtrack Analysis Project">
+    <meta name="author" content="Nicholas Renier">
+    <script src="js/verovio-toolkit.js"></script>
+    <script src="js/utils.js"></script>
+  </head>
+  <body>
+  	<a href="index.html"><h1>Nicholas Renier - Film Soundtrack Analysis Project</h1></a>
+  	<div id="background">
+  		<div id="textcontainer">
+  			<table style="margin: 0px auto;">
+    			<tr>
+    				<td>
+    					<a href="https://www.imdb.com/title/tt0211915/" target="_blank">
+    					<img style="margin-top:10px; margin-bottom:10px;" src="images/amelie.jpg" alt="Amelie Poster" height="200"></a>
+    				</td>
+    				<td>
+    					<tr2><td2><h2>Comptine D’un Autre Été, L’après Midi</h2></td2></tr2>
+    					<tr2><td2><h3>from Amélie (2001)</h3></td2></tr2>
+    					<tr2><td2><h3>Yann Tiersen</h3></td2></tr2>
+    				</td>
+    			</tr>
+    		</table>
+    		<div id="content">
+				<h4><u>Metadata</u></h4>
+				<br>
+				<p>Click the link below to view Yann Tiersen's full filmo/discography</p>
+      			<p id="meta"></p>
+      		</div>
+      		<br><br>
+      		<h4><u>Verovio Render</u></h4>
+    		<div id="controls">
+     			<button id="prev"> &lt; </button>
+      			<button id="next"> &gt; </button>
+   			</div>
+   		 	<div id="score">
+      		<!-- THIS IS WHERE THE SCORE GOES AUTOMATICALLY -->
+    		</div>
+    		<!-- THIS CALLS THE SCRIPT THAT GETS THE MEI SCORE -->
+   			<script src="js/amelie.js"></script>
+    		<script>
+      			var xhr = new XMLHttpRequest()
+      				xhr.open('GET', 'data/amelie.mei') // <-- change this to the right file
+      				xhr.send(null)
+
+      			/* Deal with the response */
+      			xhr.onreadystatechange = function () {
+        			var DONE = 4
+      		 		var OK = 200
+        			if (xhr.readyState === DONE) {
+        		  		if (xhr.status === OK) {
+            				var parser = new DOMParser()
+            				var meiDoc = parser.parseFromString(xhr.responseText,"text/xml")
+            	/* If your element has an authURI attribute, copy the folloiwng line, being sure to replace the "MY-XML-ID" with your element's actual xml:id.
+            	document.querySelector("#meta").innerHTML += "<a href=\"" + meiDoc.querySelector("[*|id='MY-XML-ID']").getAttribute('authURI') +"\"><p>" + meiDoc.querySelector("[*|id='MY-XML-ID']").textContent + "</p></a>"
+           		*/
+           		document.querySelector("#meta").innerHTML += "<a href=\"" + meiDoc.querySelector("[*|id='composer-authority-yann-tiersen']").getAttribute('authURI') +"\"><p>" + meiDoc.querySelector("[*|id='composer-authority-yann-tiersen']").textContent + "</p></a>"
+           		/* If your element does not have an authURI attribute, copy the following line, being sure to replace the "MY-XML-ID" with your element's actual xml:id.
+            	document.querySelector("#meta").innerHTML += "<p>" + meiDoc.querySelector("[*|id='m-8']").textContent + "</p>"
+            	*/
+          		}
+        		}
+      			}
+    		</script>
+    		<br><br>
+    		<h4><u>Music21 Analysis</u></h4>
+    		<br>
+    		<img style="padding-right:5px;" src="images/Amelie/Amelie Histogram.png" alt="Histogram" height="350">
+    		<img style="padding-left:5px;" src="images/Amelie/Amelie Piano Roll.png" alt="Piano Roll" height="350">
+    		<br><br><br>
+    		<h4><u>jSymbolic Analysis of Midi File</u></h4>
+    		<br>
+    		<img src="images/Amelie/Amelie Feature Values.jpg" alt="jSymbolic Values" width="100%">
+    		<br><br><br>
+    		<h4><u>Sonic Visualiser Analysis</u></h4>
+    		<br>
+    		<img src="images/Amelie/Amelie Technical Metadata.jpg" alt="Technical Metadata" width="100%">
+    		<img src="images/Amelie/Amelie Waveform.png" alt="Waveform" width="70%">
+    		<img src="images/Amelie/Amelie Log Frequency Spectrogram.png" alt="Spectrogram" width="70%">
+    		<img src="images/Amelie/Amelie Melodic Range Spectrogram with Spectrum.png" alt="Melodic Range with Spectrum" width="70%">
+    		<img src="images/Amelie/Amelie MFCC.png" alt="MFCC" width="70%">
+    		<img src="images/Amelie/Amelie Chromagram.png" alt="Chromagram" width="70%">
+    		<br><br><br>
+    		<h4><u>All Other Files & Analysis</u></h4>
+    		<br>
+    		<p>View and download all other files by clicking on the folder icon</p>
+    		<br>
+    		<a href="Amelie Files.zip" download>
+    		<img src="images/folder.png" alt="Folder Icon" height="150">
+    		<p>Amelie Files.zip</p></a>
+    		<br><br>
+    		<p><u><a href="#top">Back to top?</a></u></p>
+    		<br>
+  		</div>
+  	</div>
+  </body>
+</html>
